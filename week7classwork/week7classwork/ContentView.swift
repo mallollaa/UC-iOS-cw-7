@@ -18,7 +18,7 @@ struct movie: Identifiable {
     let id = UUID()
     let name: String
     let actorsImage: [String]
-    let cast: [Castmember]
+    let cast = [Castmember]
     
 }
 struct ContentView: View {
@@ -182,15 +182,15 @@ struct MoviesDetalis:View{
             Spacer()
             ScrollView(.horizontal) {
                 HStack{
-                    ForEach(movie.cast){Castmember in
-                        VStack{
-                            Image(Castmember.actorsImage)
-                                .resizable()
-                                .frame(width: 100, height: 100)
-                                .clipShape(Circle())
-                            Text(Castmember.name)
-                                .font(.title)
-                                .foregroundColor(.white)
+                            ForEach(movie.cast){Castmember in
+                                VStack{
+                                    Image(Castmember.actorsImage)
+                                        .resizable()
+                                        .frame(width: 100, height: 100)
+                                        .clipShape(Circle())
+                                    Text(Castmember.name)
+                                        .font(.title)
+                                        .foregroundColor(.white)
                             
                         }
                     }
